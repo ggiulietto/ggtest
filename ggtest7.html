@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Website</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+      }
+      .tab {
+        display: none;
+      }
+      .active {
+        display: block;
+      }
+      button {
+        background-color: white;
+        color: black;
+        border: none;
+        padding: 10px 20px;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+      button:focus {
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="agent-tab">Agent</button>
+    <button id="player-tab">Player</button>
+    <div id="agent-content" class="tab active">
+      <h1>Agent Content</h1>
+      <p>This is the content for the agent tab.</p>
+    </div>
+    <div id="player-content" class="tab">
+      <h1>Player Content</h1>
+      <button id="series-a-btn">Series A</button>
+      <button id="series-b-btn">Series B</button>
+      <div id="series-options" style="display: none;">
+        <button id="actively-searching-btn">Actively Searching</button>
+        <button id="open-to-opportunities-btn">Open to Hearing Opportunities</button>
+      </div>
+    </div>
+    <script>
+      var agentTab = document.getElementById("agent-tab");
+      var playerTab = document.getElementById("player-tab");
+      var agentContent = document.getElementById("agent-content");
+      var playerContent = document.getElementById("player-content");
+      var seriesABtn = document.getElementById("series-a-btn");
+      var seriesBBtn = document.getElementById("series-b-btn");
+      var seriesOptions = document.getElementById("series-options");
+      var activelySearchingBtn = document.getElementById("actively-searching-btn");
+      var openToOpportunitiesBtn = document.getElementById("open-to-opportunities-btn");
+
+      agentTab.addEventListener("click", function() {
+        agentContent.classList.add("active");
+        playerContent.classList.remove("active");
+        seriesOptions.style.display = "none";
+      });
+
+      playerTab.addEventListener("click", function() {
+        playerContent.classList.add("active");
+        agentContent.classList.remove("active");
+        seriesOptions.style.display = "none";
+      });
+
+      seriesABtn.addEventListener("click", function() {
+        seriesOptions.style.display = "block";
+      });
+
+      seriesBBtn.addEventListener("click", function() {
+        seriesOptions.style.display = "block";
+      });
+
+      activelySearchingBtn.addEventListener("click", function() {
+        // Handle click event for Actively Searching button
+        console.log("Actively Searching clicked");
+      });
+
+      openToOpportunitiesBtn.addEventListener("click", function() {
+        // Handle click event for Open to Opportunities button
+        console.log("Open to Opportunities clicked");
+      });
+    </script>
+  </body>
+</html>
